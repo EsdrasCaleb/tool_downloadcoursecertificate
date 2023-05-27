@@ -35,7 +35,10 @@ if ($mform->is_cancelled()) {
     $whereselect = implode(" and ",$where);
     $sql = "SELECT * from {tool_certificate_issues} where {$whereselect}";
     $issues = $DB->get_records_sql($sql,$params);
-
+    if(count($issues)==0){
+      redirect($CFG->wwwroot."/admin/tool/downloadcoursecertificate/downloadpage.php",get_string("no_results",'tool_downloadcoursecertificate'));
+      die("");
+    }
     $zip = new ZipArchive();
     $archive_file_name = 'certificates.zip';
     if ($zip->open($archive_file_name, ZipArchive::CREATE)!==TRUE) {
@@ -43,8 +46,8 @@ if ($mform->is_cancelled()) {
     }
     foreach($issues as $issue){
       $template = \tool_certificate\template::instance($issue->templateid);
-      $file = $template->get_issue_file($issue);
-      $zip->addFromString($file->get_filename(),$file->get_source());
+      //$file = $template->get_issue_file($issue);
+      $zip->addFile($template->get_issue_file_url($issue));
     }
     header("Content-type: application/zip"); 
     header("Content-Disposition: attachment; filename=$archive_file_name");
