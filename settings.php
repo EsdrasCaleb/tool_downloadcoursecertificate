@@ -29,7 +29,9 @@ global $CFG;
 
 if (is_siteadmin()) {
     if (!$ADMIN->locate('tool_downloadcoursecertificate')) {
-        $page = new admin_settingpage('tool_downloadcoursecertificate', get_string('pluginsettigs', 'tool_downloadcoursecertificate'));
+        $page = new admin_externalpage('tool_downloadcoursecertificate', 
+            get_string('pluginname', 'tool_downloadcoursecertificate'),
+            $CFG->wwwroot . '/' . $CFG->admin . '/tool/downloadcoursecertificate/downloadpage.php');
         $ADMIN->add('tools', $page);
 
     }
