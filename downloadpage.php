@@ -46,9 +46,9 @@ if ($mform->is_cancelled()) {
     }
     foreach($issues as $issue){
       $template = \tool_certificate\template::instance($issue->templateid);
-      //$file = $template->get_issue_file($issue);
-      //$zip->addFromString($file->get_filename(),$file->get_source());
-      $zip->addFile($template->get_issue_file_url($issue)->__toString());
+      $file = $template->get_issue_file($issue);
+      $zip->addFromString($file->get_filename(),$file->get_source());
+      //$zip->addFile($template->get_issue_file_url($issue)->__toString());
     }
     $zip->close();
     header("Content-type: application/zip"); 
