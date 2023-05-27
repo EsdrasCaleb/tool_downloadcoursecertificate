@@ -41,7 +41,7 @@ if ($mform->is_cancelled()) {
     }
     $zip = new ZipArchive();
     $archive_file_name = 'certificates.zip';
-    if ($zip->open($archive_file_name, ZipArchive::CREATE)!==TRUE) {
+    if ($zip->open($archive_file_name, ZipArchive::CREATE|ZipArchive::OVERWRITE)!==TRUE) {
       exit(get_string('error_zip','tool_downloadcoursecertificate'));
     }
     foreach($issues as $issue){
