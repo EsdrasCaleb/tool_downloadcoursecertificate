@@ -48,8 +48,6 @@ if ($mform->is_cancelled()) {
       $template = \tool_certificate\template::instance($issue->templateid);
       //$file = $template->get_issue_file($issue);
       //$zip->addFile($file->get_filename(),$file->get_source());
-      var_dump($template->get_issue_file_url($issue)->__toString());
-      die("a");
       $zip->addFile($template->get_issue_file_url($issue)->__toString());
     }
     $zip->close();
@@ -59,6 +57,7 @@ if ($mform->is_cancelled()) {
     header("Pragma: no-cache"); 
     header("Expires: 0"); 
     readfile("$archive_file_name");
+    die("");
   }
 
   
