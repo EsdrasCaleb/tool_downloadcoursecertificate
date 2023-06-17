@@ -19,12 +19,12 @@ class download_form extends moodleform {
 
         $mform->addRule('type', get_string('select_type','tool_downloadcoursecertificate'),
          'required',null,'client');
-        $users = $DB->get_records("user",array("deleted"=>0,'confirmed'=>1));
+        $users = $DB->get_records_sql("SELECT id,firstname,lastname from {user} where deleted=0 and 
+                                               id in (SELECT userid from {tool_certificate_issues})");
+
         $usernames = array();                                                                                                       
         foreach ($users as $user) {    
-            if($user->username=='guest'){
-                continue;
-            }                                                                      
+
             $usernames[$user->id] = $user->firstname." ".$user->lastname;                                                                  
         }                                                                                                                           
         $options = array(                                                                                                           
@@ -36,12 +36,12 @@ class download_form extends moodleform {
         $mform->addElement('autocomplete', 'userids', get_string('add_users','tool_downloadcoursecertificate'), $usernames, $options);
 
 
-        $courses = $DB->get_records("course");
+        $courses = $DB->get_records_sql("SELECT id,fullname from {course} where deleted=0 and 
+                                       id in (SELECT courseid from {tool_certificate_issues})");
+
         $coursesnames = array();                                                                                                       
         foreach ($courses as $course) {      
-            if($course->id==1){
-                continue;
-            }                                                                       
+
             $coursesnames[$course->id] = $course->fullname;                                                                  
         }                                                                                                                           
         $options = array(                                                                                                           
