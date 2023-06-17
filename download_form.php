@@ -36,7 +36,7 @@ class download_form extends moodleform {
         $mform->addElement('autocomplete', 'userids', get_string('add_users','tool_downloadcoursecertificate'), $usernames, $options);
 
 
-        $courses = $DB->get_records_sql("SELECT id,fullname from {course} where deleted=0 and 
+        $courses = $DB->get_records_sql("SELECT id,fullname from {course} where  
                                        id in (SELECT courseid from {tool_certificate_issues})");
 
         $coursesnames = array();                                                                                                       
