@@ -28,44 +28,44 @@ class download_form extends moodleform {
             $usernames[$user->id] = $user->firstname." ".$user->lastname;                                                                  
         }                                                                                                                           
         $options = array(                                                                                                           
-            //'multiple' => true,
-            //'noselectionstring' => get_string('search','tool_downloadcoursecertificate'),
+            'multiple' => true,
+            'noselectionstring' => get_string('search','tool_downloadcoursecertificate'),
             'class'=>'autodown auto_user hidden' ,
         );       
 
-        //$mform->addElement('autocomplete', 'userids', get_string('add_users','tool_downloadcoursecertificate'), $usernames, $options);
-        $mform->addElement('select', 'userids', get_string('add_users','tool_downloadcoursecertificate'), $usernames, $options);
+        $mform->addElement('autocomplete', 'userids', get_string('add_users','tool_downloadcoursecertificate'), $usernames, $options);
+        //$mform->addElement('select', 'userids', get_string('add_users','tool_downloadcoursecertificate'), $usernames, $options);
 
         $courses = $DB->get_records_sql("SELECT id,fullname from {course} where  
                                        id in (SELECT courseid from {tool_certificate_issues})");
 
         $coursesnames = array();                                                                                                       
         foreach ($courses as $course) {
-            $coursesnames[0]  = get_string('search','tool_downloadcoursecertificate');
+            //$coursesnames[0]  = get_string('search','tool_downloadcoursecertificate');
             $coursesnames[$course->id] = $course->fullname;                                                                  
         }                                                                                                                           
         $options = array(                                                                                                           
-            //'multiple' => true,
-            //'noselectionstring' => get_string('search','tool_downloadcoursecertificate'),
+            'multiple' => true,
+            'noselectionstring' => get_string('search','tool_downloadcoursecertificate'),
             'class'=>'autodown auto_course hidden' ,                                           
         );       
 
-        //$mform->addElement('autocomplete', 'courseids', get_string('add_courses','tool_downloadcoursecertificate'), $coursesnames, $options);
-        $mform->addElement('select', 'courseids', get_string('add_courses','tool_downloadcoursecertificate'), $coursesnames, $options);
+        $mform->addElement('autocomplete', 'courseids', get_string('add_courses','tool_downloadcoursecertificate'), $coursesnames, $options);
+        //$mform->addElement('select', 'courseids', get_string('add_courses','tool_downloadcoursecertificate'), $coursesnames, $options);
         $templates = $DB->get_records("tool_certificate_templates");
         $templatenames = array();                                                                                                       
         foreach ($templates as $template) {
-            $templatenames[0]  = get_string('search','tool_downloadcoursecertificate');
+            //$templatenames[0]  = get_string('search','tool_downloadcoursecertificate');
             $templatenames[$template->id] = $template->name;                                                                  
         }                                                                                                                           
         $options = array(                                                                                                           
-            //'multiple' => true,
+            'multiple' => true,
             'noselectionstring' => get_string('search','tool_downloadcoursecertificate'),
             'class'=>'autodown auto_template hidden' ,                                        
         );       
 
-        //$mform->addElement('autocomplete', 'templateids', get_string('add_templates','tool_downloadcoursecertificate'), $templatenames, $options);
-        $mform->addElement('select', 'templateids', get_string('add_templates','tool_downloadcoursecertificate'), $templatenames, $options);
+        $mform->addElement('autocomplete', 'templateids', get_string('add_templates','tool_downloadcoursecertificate'), $templatenames, $options);
+        //$mform->addElement('select', 'templateids', get_string('add_templates','tool_downloadcoursecertificate'), $templatenames, $options);
 
         $this->add_action_buttons();
     }

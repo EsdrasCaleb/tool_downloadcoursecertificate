@@ -1,5 +1,5 @@
 <?php
-$string['pluginname'] = 'Baixar Certificados';
+$string['pluginname'] = 'Download dos Certificados';
 $string['type'] = 'Tipo:';
 $string['courses'] = "Curso(s):";
 $string['users'] = "Usuário(s):";
