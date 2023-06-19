@@ -32,7 +32,12 @@ class download_form extends moodleform {
             'noselectionstring' => get_string('search','tool_downloadcoursecertificate'),
             'class'=>'autodown auto_user hidden' ,
         );       
-
+        //todo
+        /*
+         * https://github.com/moodle/moodle/blob/master/lib/form/course.php
+         * https://github.com/moodle/moodle/blob/master/lib/amd/src/form-course-selector.js
+         * https://github.com/moodle/moodle/blob/master/lib/amd/src/form-cohort-selector.js
+         */
         $mform->addElement('autocomplete', 'userids', get_string('add_users','tool_downloadcoursecertificate'), $usernames, $options);
         //$mform->addElement('user', 'userids', get_string('add_users','tool_downloadcoursecertificate'));
 
