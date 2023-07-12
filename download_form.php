@@ -79,6 +79,6 @@ class download_form extends moodleform {
         $mform->addElement('autocomplete', 'templateids', get_string('add_templates','tool_downloadcoursecertificate'), $templatenames, $options);
         //$mform->addElement('select', 'templateids', get_string('add_templates','tool_downloadcoursecertificate'), $templatenames, $options);
         */
-        $this->add_action_buttons('false',get_string('search','tool_downloadcoursecertificate') );
+        $this->add_action_buttons(false,get_string('search','tool_downloadcoursecertificate') );
     }
 }

@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="696dc982-0cca-48a2-8f0b-66ae44863c6a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/certificates.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/download_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/download_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/downloadpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/downloadpage.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lang/en/tool_downloadcoursecertificate.php" beforeDir="false" afterPath="$PROJECT_DIR$/lang/en/tool_downloadcoursecertificate.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lang/pt_br/tool_downloadcoursecertificate.php" beforeDir="false" afterPath="$PROJECT_DIR$/lang/pt_br/tool_downloadcoursecertificate.php" afterDir="false" />
     </list>
@@ -74,7 +72,7 @@
       <workItem from="1687255695436" duration="599000" />
       <workItem from="1687260803572" duration="7000" />
       <workItem from="1689159162095" duration="1494000" />
-      <workItem from="1689182481441" duration="6926000" />
+      <workItem from="1689182481441" duration="7141000" />
     </task>
     <servers />
   </component>
