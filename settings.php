@@ -29,10 +29,11 @@ global $CFG;
 
 if (is_siteadmin()) {
     if (!$ADMIN->locate('tool_downloadcoursecertificate')) {
-        $page = new admin_externalpage('tool_downloadcoursecertificate', 
+        $ADMIN->add('tools', new admin_externalpage('tool_downloadcoursecertificate_tool',
             get_string('pluginname', 'tool_downloadcoursecertificate'),
-            $CFG->wwwroot . '/' . $CFG->admin . '/tool/downloadcoursecertificate/downloadpage.php');
-        $ADMIN->add('tools', $page);
-
+            $CFG->wwwroot . '/' . $CFG->admin . '/tool/downloadcoursecertificate/downloadpage.php'));
+        $ADMIN->add('certificates', new admin_externalpage('tool_downloadcoursecertificate_general',
+            get_string('pluginname', 'tool_downloadcoursecertificate'),
+            $CFG->wwwroot . '/' . $CFG->admin . '/tool/downloadcoursecertificate/downloadpage.php'));
     }
 }
