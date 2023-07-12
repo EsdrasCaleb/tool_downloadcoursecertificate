@@ -19,7 +19,7 @@ if ($mform->is_cancelled()) {
     redirect($CFG->wwwroot."/admin");
 } else if ($fromform = $mform->get_data()) {
     $url = new moodle_url('/admin/tool/downloadcoursecertificate/certificates.php',
-        array('courseids' => implode(',',$fromform->courseids)));
+        array('courseids' => implode(',',$fromform->courseids),'userids'=>$fromform->userids));
     redirect($url);
   
 } else {

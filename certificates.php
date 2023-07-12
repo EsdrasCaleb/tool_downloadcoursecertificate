@@ -47,3 +47,7 @@ if(count($where)>0){
     readfile("$archive_file_name");
     die("");
 }
+else{
+    redirect($CFG->wwwroot."/admin/tool/downloadcoursecertificate/downloadpage.php",get_string("no_results",'tool_downloadcoursecertificate'));
+    die("");
+}
