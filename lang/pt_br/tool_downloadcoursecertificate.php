@@ -11,3 +11,6 @@ $string['add_templates'] = "Selecione um Template(s):";
 $string['select_type'] = "Selecione um Tipo";
 $string['error_zip'] = "Não foi possivel criar o arquivo zip";
 $string['no_results'] = "Nenhum certificado para os criterios escolidos";
+$string['search'] = "Procurar";
+$string['user_desc'] = 'ids dos usuários separados por virgula';
+$string['user_desc_help'] = 'ids dos usuários separados por virgula';

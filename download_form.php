@@ -6,8 +6,16 @@ class download_form extends moodleform {
     public function definition() {
         global $CFG,$DB;
        
-        $mform = $this->_form; 
-
+        $mform = $this->_form;
+        $options = array(
+            'multiple' => true,
+            'noselectionstring' => get_string('search','tool_downloadcoursecertificate'),
+        );
+        $mform->addElement('course', 'courseids', get_string('add_courses','tool_downloadcoursecertificate'), $options);
+        $mform->addElement('text', 'userids', get_string('add_users','tool_downloadcoursecertificate'));
+        $mform->addHelpButton('userids', 'user_desc', 'tool_downloadcoursecertificate');
+        $mform->setType('userids', PARAM_RAW);
+        /*
         $mform->addElement('select', 'type',get_string('type','tool_downloadcoursecertificate'),
             array(
             ''=>get_string('select'),
@@ -31,13 +39,16 @@ class download_form extends moodleform {
             'multiple' => true,
             'noselectionstring' => get_string('search','tool_downloadcoursecertificate'),
             'class'=>'autodown auto_user hidden' ,
-        );       
+        );
+        */
+
         //todo
         /*
          * https://github.com/moodle/moodle/blob/master/lib/form/course.php
          * https://github.com/moodle/moodle/blob/master/lib/amd/src/form-course-selector.js
          * https://github.com/moodle/moodle/blob/master/lib/amd/src/form-cohort-selector.js
          */
+        /*
         $mform->addElement('autocomplete', 'userids', get_string('add_users','tool_downloadcoursecertificate'), $usernames, $options);
         //$mform->addElement('user', 'userids', get_string('add_users','tool_downloadcoursecertificate'));
 
@@ -67,7 +78,7 @@ class download_form extends moodleform {
 
         $mform->addElement('autocomplete', 'templateids', get_string('add_templates','tool_downloadcoursecertificate'), $templatenames, $options);
         //$mform->addElement('select', 'templateids', get_string('add_templates','tool_downloadcoursecertificate'), $templatenames, $options);
-
-        $this->add_action_buttons();
+        */
+        $this->add_action_buttons('false',get_string('search','tool_downloadcoursecertificate') );
     }
 }
