@@ -32,8 +32,10 @@ if (is_siteadmin()) {
         $ADMIN->add('tools', new admin_externalpage('tool_downloadcoursecertificate_tool',
             get_string('pluginname', 'tool_downloadcoursecertificate'),
             $CFG->wwwroot . '/' . $CFG->admin . '/tool/downloadcoursecertificate/downloadpage.php'));
-        $ADMIN->add('certificates', new admin_externalpage('tool_downloadcoursecertificate_general',
-            get_string('pluginname', 'tool_downloadcoursecertificate'),
-            $CFG->wwwroot . '/' . $CFG->admin . '/tool/downloadcoursecertificate/downloadpage.php'));
+        if ($ADMIN->locate('certificate s')) {
+            $ADMIN->add('certificates', new admin_externalpage('tool_downloadcoursecertificate_general',
+                get_string('pluginname', 'tool_downloadcoursecertificate'),
+                $CFG->wwwroot . '/' . $CFG->admin . '/tool/downloadcoursecertificate/downloadpage.php'));
+        }
     }
 }
